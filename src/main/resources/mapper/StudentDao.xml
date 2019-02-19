@@ -12,6 +12,8 @@
     <insert id="com.ssm.dao.StudentDao.insertStudent" parameterType="com.ssm.model.Student" useGeneratedKeys="true" keyProperty="id">
       INSERT INTO STUDENT(name,sex,age) VALUES(#{name},#{sex},#{age})
     </insert>
-
+    <delete id="com.ssm.dao.StudentDao.deleteStudentByName" parameterType="String">
+        DELETE FROM STUDENT WHERE NAME = #{name}
+    </delete>
 
 </mapper>

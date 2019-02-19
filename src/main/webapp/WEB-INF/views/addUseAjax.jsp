@@ -32,8 +32,9 @@
                     dataType: "json",//预期服务器返回的数据类型
                     url: "<%=path%>/student/add.do",//url
                     <%--url: "<%=path%>/student/addUseAjax.do",--%>
-                    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                    // contentType : "application/x-www-form-urlencoded; charset=utf-8",
                     // contentType : "application/json;charset=UTF-8",
+                    contentType:"application/json",
                     data:$("#form1").serialize(),
                     success: function(result){
                         console.log(result);//打印服务端返回的数据（调试)
