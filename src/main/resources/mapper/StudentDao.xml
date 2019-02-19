@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--设置为StudentDao接口方法提供sql语句配置-->
+<mapper namespace="com.ssm.dao">
+    <select id="com.ssm.dao.StudentDao.selectStudent" resultType="com.ssm.model.Student" parameterType= "Integer">
+      SELECT * FROM STUDENT WHERE ID = #{id}
+    </select>
+    <select id="com.ssm.dao.StudentDao.selectStudentByName" resultType="com.ssm.model.Student" parameterType="String">
+      SELECT * FROM STUDENT WHERE NAME = #{studentName}
+    </select>
+    <insert id="com.ssm.dao.StudentDao.insertStudent" parameterType="com.ssm.model.Student" useGeneratedKeys="true" keyProperty="id">
+      INSERT INTO STUDENT(name,sex,age) VALUES(#{name},#{sex},#{age})
+    </insert>
+
+
+</mapper>
