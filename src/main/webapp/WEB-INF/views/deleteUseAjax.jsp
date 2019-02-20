@@ -26,10 +26,23 @@
     </style>
     <script>
         $(function () {
+            //删除学生
             $(".btn.btn-danger").click(function () {
+                var student = new Object();
+                student.name = $(".input-medium.search-query").val();
                 $.ajax({
-
-                })
+                    type:"post",
+                    dataType:"json",
+                    url:"<%=path%>/student/deleteUseAjax.do",
+                    contentType:"application/json;charset=utf-8",
+                    data:JSON.stringify(student),
+                    success:function (result) {
+                        $("#displayInfo > h3 ").html(JSON.stringify(result));
+                    },
+                    error:function () {
+                        $("#displayInfo > h3").html("查找失败！");
+                    },
+                });
             });
             $(".btn.btn-info").click(function () {
                 var student = new Object();
@@ -52,11 +65,12 @@
                     // data:'{"name":"abc","sex":"男","age":18}',
                     // data:JSON.stringify(student),
                     success:function (result) {
+                        alert(result);
                         $("#displayInfo > h3 ").html(result);
                     },
                     error:function () {
                         $("#displayInfo > h3").html("查找失败！");
-                    }
+                    },
                 });
             });
         });

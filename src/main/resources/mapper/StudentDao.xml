@@ -15,5 +15,8 @@
     <delete id="com.ssm.dao.StudentDao.deleteStudentByName" parameterType="String">
         DELETE FROM STUDENT WHERE NAME = #{name}
     </delete>
+    <select id="com.ssm.dao.StudentDao.selectAllStudent" resultType="com.ssm.model.Student">
+        SELECT id,name,sex,age FROM STUDENT
+    </select>
 
 </mapper>
